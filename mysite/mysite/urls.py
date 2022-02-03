@@ -13,9 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+## 최상위 URLconf 관리
+## 콘트롤러 등록?
+## 작성한 url을 연결
 
+from django.contrib import admin
+from django.urls import include, path
+
+## include() > 다른 URLconf를 참조할 수 있게 해줌
+## http://127.0.0.1:8000/polls와 연결
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls')), 
+    path('admin/', admin.site.urls), 
 ]
